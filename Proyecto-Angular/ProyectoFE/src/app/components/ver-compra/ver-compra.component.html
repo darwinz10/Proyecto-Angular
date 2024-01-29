@@ -1,0 +1,18 @@
+<div class="title">
+    <h1>Ver Compras</h1>
+</div>
+
+<div *ngIf="compra != null" class="container">
+    <mat-card class="card">
+        <mat-card-title>COMPRAS</mat-card-title>
+        <mat-card-content>
+            <p><strong>Usuario:</strong> {{compra.usuario}}</p>
+            <p><strong>Estado:</strong> {{compra.estado}}</p>
+            <p><strong>Direccion:</strong> {{compra.direccion}}</p>
+            <p><strong>Num Envios:</strong> {{compra.cantidad}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button routerLink="/listCompra" class="button" mat-stroked-button color="warn">Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

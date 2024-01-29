@@ -1,0 +1,42 @@
+<div class="title">
+    <h1>{{ operacion }} Cliente</h1>
+</div>
+<div class="container">
+    <mat-card class="card">
+        <mat-card-subtitle>
+            Datos del cliente
+        </mat-card-subtitle>
+        <form [formGroup]="form" (ngSubmit)="agregarCliente()">
+            <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Cedula</mat-label>
+                        <input formControlName="cedula" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input formControlName="apellido" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="mat-form-field" appearance="outline">
+                        <mat-label>Ciudad</mat-label>
+                        <input formControlName="ciudad" matInput>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2">
+                    <button [disabled]="form.invalid" type="submit" class="btnGuardar" mat-raised-button color="primary">Guardar</button>
+                    <button mat-stroked-button color="warn" routerLink="/listCliente">Volver</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

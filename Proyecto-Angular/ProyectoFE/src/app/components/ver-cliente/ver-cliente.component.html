@@ -1,0 +1,18 @@
+<div class="title">
+    <h1>Ver Clientes</h1>
+</div>
+
+<div  *ngIf="cliente != null"  class="container">
+    <mat-card class="card">
+        <mat-card-title>CLIENTES</mat-card-title>
+        <mat-card-content>
+        <p><strong>Cedula:</strong> {{cliente.cedula}}</p>
+        <p><strong>Nombre:</strong> {{cliente.nombre}}</p>
+        <p><strong>Apellido:</strong> {{cliente.apellido}}</p>
+        <p><strong>Ciudad:</strong> {{cliente.ciudad}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button routerLink="/listCliente" class="button" mat-stroked-button color="warn">Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,53 @@
+<div class="title">
+    <h1>Gestión de compras</h1>
+</div>
+
+<div class="container">
+  <mat-form-field>
+    <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar compra" #input autocomplete="off">
+  </mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="usuario">
+    <th mat-header-cell *matHeaderCellDef> Cliente </th>
+    <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado/Novedad </th>
+    <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="direccion">
+    <th mat-header-cell *matHeaderCellDef> Domicilio </th>
+    <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cantidad">
+    <th mat-header-cell *matHeaderCellDef> Num Envios </th>
+    <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="opciones">
+    <th mat-header-cell *matHeaderCellDef><button routerLink="/agregarCompra" mat-raised-button class="button " color="primary">Nueva Compra</button></th>
+    <td mat-cell *matCellDef="let element">
+        <mat-icon routerLink="/verCompra/{{element.compraId}}" matTooltip="Ver Compra" class="search" fontIcon="search"></mat-icon>
+        <mat-icon routerLink="/editarCompra/{{element.compraId}}" class="edit" matTooltip="Editar Compra" fontIcon="edit"></mat-icon>
+        <mat-icon (click)="eliminarCompra(element.compraId)" class="delete" matTooltip="Eliminar Compra" fontIcon="delete"></mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button mat-stroked-button color="warn" class="btnMenu" routerLink="/verMenu">Menu Principal</button>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+</mat-paginator>
+
+</div>
